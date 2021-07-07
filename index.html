@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+    <title>Interplanetary System</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const data = [
+        {
+          name: "Ethereum",
+          description:
+            "Ethereum es una plataforma open source, que sirve para programar contratos inteligentes. La plataforma es descentralizada a diferencia de otras cadenas de bloques. Es programable, lo que significa que los desarrolladores pueden usarlo para crear nuevos tipos de aplicaciones descentralizadas.",
+          urlimg:
+            "https://libertex.org/sites/default/files/styles/blog_detail_hero/public/blog/778614103-min_0.jpg?itok=ffSjtobZ",
+        },
+        {
+          name: "Dogecoin",
+          description:
+            "Doge Coin es una criptodivisa que nacio como una broma para las criptomonedas mas populares como Bitcoin y Ehereum.",
+          urlimg:
+            "https://i0.wp.com/criptotendencia.com/wp-content/uploads/2021/04/Precio-de-Dogecoin-cae-durante-el-Doge-Day.jpg?fit=1024%2C627&ssl=1",
+        },
+        {
+          name: "Bitcoin",
+          description:
+            "Fue concebida en 2008​ por una entidad conocida bajo el seudónimo de Satoshi Nakamoto, cuya identidad concreta se desconoce. Satoshi trabajó en el código fuente de la aplicación de referencia​ junto a otros desarrolladores voluntarios hasta diciembre de 2010, momento en el que decidió concluir su actividad pública.",
+          urlimg: "https://static.dw.com/image/56167112_303.jpg",
+        },
+      ];
+      let card = React.createElement(
+        "div",
+        { className: "d-flex justify-content-around" },
+        data.map((data, i) =>
+          React.createElement(
+            "div",
+            { className: "flex-row", key: i },
+            React.createElement(
+              "div",
+              { className: "card", key: i, style: { width: 18 + "rem" } },
+              React.createElement("img", {
+                src: data.urlimg,
+                className: "card-img-top",
+                alt: "",
+              }),
+              React.createElement(
+                "div",
+                { className: "card-body" },
+                React.createElement(
+                  "h5",
+                  { className: "card-title" },
+                  data.name
+                ),
+                React.createElement(
+                  "p",
+                  { className: "card-text" },
+                  data.description
+                )
+              )
+            )
+          )
+        )
+      );
+      ReactDOM.render(card, document.getElementById("root"));
+    </script>
+  </body>
+</html>
